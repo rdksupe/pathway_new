@@ -48,6 +48,14 @@ class DocumentProcessor:
     def initialize_vector_store(self, path):
         """Initialize document store with provided file path"""
         source = pw.io.fs.read(path=path, with_metadata=True, format="binary")
+        folder = pw.io.gdrive.read(
+            object_id="1_ga91J5sZ_YcQdcNWcQXtrBHqvODpEa5",
+            mode="streaming",
+            object_size_limit=None,
+            service_user_credentials_file="team-30-441514-d9a9da2d500c.json",
+            with_metadata=True,
+            file_name_pattern=None
+        )
 
         usearch = UsearchKnnFactory(embedder=self.embedder)
         #knn = LshKnnFactory(embedder=self.embedder)
@@ -57,7 +65,7 @@ class DocumentProcessor:
         
         self.vector_store = DocumentStore.from_langchain_components(
             retriever_factory=retriever_factory,
-            docs=[source],
+            docs=[source,folder],
             parser=self.parser,
             splitter=text_splitter,
         )
