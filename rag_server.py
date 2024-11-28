@@ -9,14 +9,10 @@ from dotenv import load_dotenv
 app = FastAPI()
 load_dotenv()
 # OpenAI client configuration
-token = os.getenv("OPENAI_API_KEY_TEAM_30")
 endpoint = "https://models.inference.ai.azure.com"
 model_name = "gpt-4o-mini"
 
-client = OpenAI(
-    base_url=endpoint,
-    api_key=token,
-)
+client = OpenAI()
 
 class Query(BaseModel):
     query: str
