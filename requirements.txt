@@ -2,4 +2,4 @@ pathway[all]
 fastapi
 uvicorn
 openai
-dotenv
+python-dotenv
