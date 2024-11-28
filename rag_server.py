@@ -12,7 +12,7 @@ load_dotenv()
 endpoint = "https://models.inference.ai.azure.com"
 model_name = "gpt-4o-mini"
 
-client = OpenAI()
+client = OpenAI(api_key="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")
 
 class Query(BaseModel):
     query: str
