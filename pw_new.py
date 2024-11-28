@@ -40,8 +40,7 @@ class DocumentProcessor:
         )
         self.parser = parsers.ParseUnstructured()
         self.embedder = embedders.LiteLLMEmbedder(
-            model='ollama/nomic-embed-text:latest',
-            api_base="http://0.0.0.0:11434",
+            model='voyageai/voyage-3',
             cache_strategy=DiskCache()
         )
 
