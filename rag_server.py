@@ -30,7 +30,7 @@ def query_retrieval_service(query: str, k: int = 5) -> List[Dict[str, Any]]:
     """Query the local retrieval service for relevant documents."""
     try:
         encoded_query = quote(query)
-        response = requests.get(f"http://localhost:4004/v1/retrieve?query={encoded_query}&k={k}")
+        response = requests.get(f"http://0.0.0.0:4004/v1/retrieve?query={encoded_query}&k={k}")
         response.raise_for_status()
         return response.json()
     except Exception as e:
