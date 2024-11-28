@@ -40,7 +40,7 @@ class DocumentProcessor:
         )
         self.parser = parsers.ParseUnstructured()
         self.embedder = embedders.LiteLLMEmbedder(
-            model='voyageai/voyage-3',
+            model='voyage/voyage-3',
             cache_strategy=DiskCache()
         )
 
